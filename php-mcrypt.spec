@@ -7,8 +7,8 @@
 # Please, preserve the changelog entries
 #
 %if 0%{?scl:1}
-%if "%{scl}" == "rh-php56"
-%global sub_prefix sclo-php56-
+%if "%{scl}" == "rh-php70"
+%global sub_prefix sclo-php70-
 %else
 %global sub_prefix %{scl_prefix}
 %endif
@@ -22,7 +22,7 @@
 
 Name:           %{?sub_prefix}php-%{pecl_name}
 Summary:        Standard PHP module provides mcrypt library support
-Version:        5.6.28
+Version:        7.0.16
 Release:        1%{?dist}
 Source0:        http://www.php.net/distributions/php-%{version}.tar.bz2
 
@@ -30,7 +30,7 @@ License:        PHP
 Group:          Development/Languages
 URL:            http://php.net/%{pecl_name}
 
-BuildRequires:  %{?scl_prefix}php-devel >= 5.6.25
+BuildRequires:  %{?scl_prefix}php-devel >= 7.0.10
 BuildRequires:  krb5-devel
 BuildRequires:  openssl-devel
 BuildRequires:  libmcrypt-devel
@@ -58,8 +58,8 @@ Package built for PHP %(%{__php} -r 'echo PHP_MAJOR_VERSION.".".PHP_MINOR_VERSIO
 %setup -q -n php-%{version}
 
 # Fix reported version
-sed -e 's/NO_VERSION_YET/"%{version}"/' \
-    -i ext/%{pecl_name}/mcrypt.c
+sed -e '/PHP_MCRYPT_VERSION/s/PHP_VERSION/"%{version}"/' \
+    -i ext/%{pecl_name}/php_mcrypt.h
 
 # Configuration file
 cat << 'EOF' | tee %{ini_name}
@@ -113,7 +113,7 @@ make test
 
 
 %changelog
-* Wed Mar  8 2017 Remi Collet <remi@remirepo.net> - 5.6.28-1
+* Wed Mar  8 2017 Remi Collet <remi@remirepo.net> - 7.0.16-1
 - initial package
-- version 5.6.28 for fix since 5.6.25 (memory leak)
+- version 7.0.16 for security fix since 7.0.10
 
