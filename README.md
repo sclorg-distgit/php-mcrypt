@@ -4,7 +4,7 @@ to build Software Collections for CentOS by SCLo SIG.
 This branch is for sclo-php70 packages (for rh-php70 SCL)
 
 
-PHP 5.6 / EL 7
+PHP 7.0 / EL 7
 
     build -bs *spec --define "scl rh-php70" --define "dist .el7"
     cbs add-pkg    sclo7-sclo-php70-sclo-candidate --owner=sclo  sclo-php70-php-mcrypt
@@ -13,7 +13,7 @@ PHP 5.6 / EL 7
     cbs build      sclo7-sclo-php70-sclo-el7       <above>.src.rpm
     cbs tag-build  sclo7-sclo-php70-sclo-testing   <previous>
 
-PHP 5.6 / EL 6
+PHP 7.0 / EL 6
 
     build -bs *spec --define "scl rh-php70" --define "dist .el6"
     cbs add-pkg    sclo6-sclo-php70-sclo-candidate --owner=sclo  sclo-php70-php-mcrypt
