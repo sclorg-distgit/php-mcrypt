@@ -22,7 +22,7 @@
 
 Name:           %{?sub_prefix}php-%{pecl_name}
 Summary:        Standard PHP module provides mcrypt library support
-Version:        7.1.8
+Version:        7.1.11
 Release:        1%{?dist}
 Source0:        http://www.php.net/distributions/php-%{version}.tar.xz
 
@@ -113,6 +113,9 @@ make test
 
 
 %changelog
+* Mon Oct 30 2017 Remi Collet <remi@remirepo.net> - 7.1.11-1
+- Update to 7.1.11 for latest security fix
+
 * Thu Aug 10 2017 Remi Collet <remi@remirepo.net> - 7.1.8-1
 - update to 7.1.8 for sclo-php71
 
