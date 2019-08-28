@@ -1,6 +1,6 @@
 # centos/sclo spec file for php-mcrypt
 #
-# Copyright (c) 2017 Remi Collet
+# Copyright (c) 2017-2019 Remi Collet
 # License: CC-BY-SA
 # http://creativecommons.org/licenses/by-sa/4.0/
 #
@@ -22,7 +22,7 @@
 
 Name:           %{?sub_prefix}php-%{pecl_name}
 Summary:        Standard PHP module provides mcrypt library support
-Version:        7.1.11
+Version:        7.1.30
 Release:        1%{?dist}
 Source0:        http://www.php.net/distributions/php-%{version}.tar.xz
 
@@ -113,6 +113,9 @@ make test
 
 
 %changelog
+* Wed Aug 28 2019 Remi Collet <remi@remirepo.net> - 7.1.30-1
+- rebase to 7.1.30
+
 * Mon Oct 30 2017 Remi Collet <remi@remirepo.net> - 7.1.11-1
 - Update to 7.1.11 for latest security fix
 
